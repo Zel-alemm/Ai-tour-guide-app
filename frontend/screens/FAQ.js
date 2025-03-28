@@ -13,7 +13,7 @@ const FAQ = ({ questions }) => {
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4" gutterBottom sx={{ color: '#00ADB5', mb: 3 }}>
-        Frequently Asked Questions
+        Frequently Asked Question
       </Typography>
       
       {questions.map((faq, index) => (
