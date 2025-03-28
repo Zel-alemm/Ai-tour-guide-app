@@ -1,18 +1,23 @@
-// ProfileScreen.js
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
-  const menuItemsLoggedIn = [
+const defaultProfileImage = require('../../assets/icon.png');
+
+const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser }) => {
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser(null);
+    navigation.navigate('Home');
+  };
+
+  const menuItems = isLoggedIn ? [
     { id: 1, title: 'My Bookings', icon: 'book', screen: 'Bookings' },
     { id: 2, title: 'Reservations', icon: 'calendar-clock', screen: 'Reservations' },
     { id: 3, title: 'Wishlist', icon: 'heart', screen: 'Wishlist' },
-    { id: 4, title: 'Profile Settings', icon: 'account-cog', screen: 'ProfileSettings' },
+    { id: 4, title: 'Profile Settings', icon: 'account-cog', screen: 'ProfileSettingsScreen' },
     { id: 5, title: 'Help Center', icon: 'help-circle', screen: 'Help' },
-  ];
-
-  const menuItemsLoggedOut = [
+  ] : [
     { id: 1, title: 'Help Center', icon: 'help-circle', screen: 'Help' }
   ];
 
@@ -20,14 +25,14 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
     <ScrollView style={styles.container}>
       <View style={styles.profileHeader}>
         <Image 
-          source={isLoggedIn ? user.profileImage : require('../../assets/icon.png')} 
+          source={isLoggedIn ? user?.profileImage : defaultProfileImage} 
           style={styles.profileImage} 
         />
         
         {isLoggedIn ? (
           <>
-            <Text style={styles.profileName}>{user.name}</Text>
-            <Text style={styles.profileEmail}>{user.email}</Text>
+            <Text style={styles.profileName}>{user?.name}</Text>
+            <Text style={styles.profileEmail}>{user?.email}</Text>
           </>
         ) : (
           <Text style={styles.profileName}>Guest User</Text>
@@ -37,7 +42,7 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
           <View style={styles.authButtonsContainer}>
             <TouchableOpacity
               style={[styles.authButton, { marginRight: 10 }]}
-              onPress={() => navigation.navigate('Auth')}
+              onPress={() => navigation.navigate('Auth', { mode: 'login' })}
             >
               <Text style={styles.authButtonText}>Login</Text>
             </TouchableOpacity>
@@ -51,7 +56,7 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
         ) : (
           <TouchableOpacity
             style={styles.authButton}
-            onPress={() => navigation.navigate('ProfileSettings')}
+            onPress={() => navigation.navigate('ProfileSettingsScreen', { user, setUser })}
           >
             <Text style={styles.authButtonText}>Edit Profile</Text>
           </TouchableOpacity>
@@ -59,29 +64,21 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
       </View>
 
       <View style={styles.menuSection}>
-        {(isLoggedIn ? menuItemsLoggedIn : menuItemsLoggedOut).map((item) => (
+        {menuItems.map((item) => (
           <TouchableOpacity
             key={item.id}
             style={styles.menuItem}
-            onPress={() => navigation.navigate(item.screen)}
+            onPress={() => isLoggedIn ? navigation.navigate(item.screen) : navigation.navigate('Auth')}
           >
-            <MaterialCommunityIcons 
-              name={item.icon} 
-              size={24} 
-              color="#00ADB5" 
-            />
+            <MaterialCommunityIcons name={item.icon} size={24} color="#00ADB5" />
             <Text style={styles.menuItemText}>{item.title}</Text>
-            <MaterialCommunityIcons 
-              name="chevron-right" 
-              size={24} 
-              color="#393E46" 
-            />
+            <MaterialCommunityIcons name="chevron-right" size={24} color="#393E46" />
           </TouchableOpacity>
         ))}
       </View>
 
       {isLoggedIn && (
-        <TouchableOpacity style={styles.logoutButton} onPress={onLogout}>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Text style={styles.logoutButtonText}>Log Out</Text>
         </TouchableOpacity>
       )}
@@ -89,7 +86,6 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, onLogout }) => {
   );
 };
 
-// Add your styles here
 const styles = StyleSheet.create({
   container: {
     flex: 1,

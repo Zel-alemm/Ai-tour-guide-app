@@ -14,7 +14,6 @@ const Header = ({ navigation, isLoggedIn, user }) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
-      
       <View style={styles.header}>
         <View style={styles.leftIcons}>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
@@ -33,7 +32,10 @@ const Header = ({ navigation, isLoggedIn, user }) => {
         <View style={styles.rightIcon}>
           <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             {isLoggedIn && user?.profileImage ? (
-              <Image source={user.profileImage} style={styles.profileImage} />
+              <Image 
+                source={user.profileImage} 
+                style={styles.profileImage} 
+              />
             ) : (
               <MaterialCommunityIcons name="account" size={24} color="#fff" />
             )}
