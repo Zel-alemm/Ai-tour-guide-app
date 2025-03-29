@@ -19,6 +19,7 @@ import SearchScreen from './frontend/screens/SearchScreen';
 import FilterHotel from './frontend/screens/FilterHotel';
 import FilteredHotels from './frontend/screens/FilteredHotels';
 import HotelDetails from './frontend/screens/HotelDetails';
+import HotelLodges from './frontend/screens/HotelLodges';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -109,6 +110,12 @@ const MainStack = ({ isLoggedIn, user, setIsLoggedIn, setUser }) => {
         component={HotelDetails}
         options={{ title: 'Hotel Details' }}
       />
+       <Stack.Screen 
+        name="HotelLodges"
+        component={HotelLodges}
+        options={{ title: 'Hotel Details' }}
+      />
+
       <Stack.Screen 
         name="About"
         component={AboutScreen}

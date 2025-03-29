@@ -12,7 +12,7 @@ const FilteredHotels = ({ route, navigation }) => {
   const renderHotelItem = ({ item }) => (
     <TouchableOpacity 
       style={styles.hotelCard}
-      onPress={() => navigation.navigate('HotelDetails', { hotel: item })}
+      onPress={() => navigation.navigate('HotelLodges', { hotel: item })}
     >
       <Image source={{ uri: item.image }} style={styles.hotelImage} />
       <View style={styles.hotelInfo}>

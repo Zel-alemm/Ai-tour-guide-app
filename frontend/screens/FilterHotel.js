@@ -33,6 +33,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Resorts",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
       rating: 4.7,
+      latitude: 11.595888348157883,  // required for map
+      longitude:  37.385426153564985,
       description: "Luxurious resort overlooking the Blue Nile with excellent amenities and services.",
     },
     {
@@ -42,6 +44,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
       rating: 4.3,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Historic hotel near the famous castles with modern comforts and traditional charm.",
     },
     {
@@ -51,6 +55,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Lodges",
       image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
       rating: 4.5,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Eco-friendly lodge with stunning views of the rock-hewn churches.",
     },
     {
@@ -60,6 +66,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
       rating: 4.1,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Modern hotel in the heart of Bahir Dar with Lake Tana views.",
     },
     {
@@ -69,6 +77,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
       rating: 4.4,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Elegant hotel combining traditional Gondarine architecture with modern luxury.",
     },
     {
@@ -78,6 +88,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
       rating: 4.2,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Comfortable hotel near the ancient stelae with excellent service.",
     },
     {
@@ -87,6 +99,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Guest Houses",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
       rating: 3.9,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Cozy guest house with friendly staff and home-like atmosphere.",
     },
     {
@@ -96,6 +110,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Resorts",
       image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
       rating: 4.6,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Beautiful resort near the Blue Nile Falls with spa facilities.",
     },
     {
@@ -105,6 +121,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
       rating: 4.0,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Well-appointed hotel with easy access to the famous churches.",
     },
     {
@@ -114,6 +132,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1566073771259-6a8506099945",
       rating: 4.3,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Panoramic views of Gondar from this hilltop hotel with excellent dining.",
     },
     {
@@ -123,6 +143,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Resorts",
       image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4",
       rating: 4.8,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Luxury resort on the shores of Lake Tana with first-class amenities.",
     },
     {
@@ -132,6 +154,8 @@ const FilterHotel = ({ navigation }) => {
       facilityType: "Hotels",
       image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa",
       rating: 4.1,
+      latitude: 37.78825,  // required for map
+      longitude: -122.4324,
       description: "Modern hotel with comfortable rooms and professional service.",
     }
   ];
