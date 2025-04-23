@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#222831',
-    padding: 16,
+    padding: 1,
   },
   errorText: {
     color: '#EEEEEE',

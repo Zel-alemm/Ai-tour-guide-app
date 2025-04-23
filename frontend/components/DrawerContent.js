@@ -283,7 +283,7 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
       <ScrollView>
         <View style={styles.header}>
           <Image 
-            source={require('../../assets/icon.png')}
+            source={require('../../assets/logo/logo.png')}
             style={styles.logo}
           />
           <Text style={styles.headerText}>Visit Amhara</Text>
@@ -404,8 +404,8 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.secondary,
   },
   logo: {
-    width: 40,
-    height: 40,
+    width: 90,
+    height: 80,
     borderRadius: 20,
     marginRight: 15,
   },

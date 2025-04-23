@@ -21,6 +21,9 @@ import FilteredHotels from './frontend/screens/FilteredHotels';
 import HotelDetails from './frontend/screens/HotelDetails';
 import HotelLodges from './frontend/screens/HotelLodges';
 
+import BookingScreen from './frontend/screens/BookingScreen';
+import ReserveScreen from './frontend/screens/ReserveScreen';
+
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
@@ -61,7 +64,7 @@ const MainStack = ({ isLoggedIn, user, setIsLoggedIn, setUser }) => {
       <Stack.Screen 
         name="Auth"
         options={{ 
-          headerShown: false,
+          headerShown: true,
           title: 'Login / Sign Up' 
         }}
       >
@@ -85,6 +88,32 @@ const MainStack = ({ isLoggedIn, user, setIsLoggedIn, setUser }) => {
           />
         )}
       </Stack.Screen>
+      <Stack.Screen 
+        name="BookingScreen"
+        options={{ title: 'My Booking' }}
+      >
+        {props => (
+          <BookingScreen
+            {...props}
+            user={user}
+            setUser={setUser}
+          />
+        )}
+      </Stack.Screen>
+
+      <Stack.Screen 
+        name="ReserveScreen"
+        options={{ title: 'Reservation' }}
+      >
+        {props => (
+          <ReserveScreen
+            {...props}
+            user={user}
+            setUser={setUser}
+          />
+        )}
+      </Stack.Screen>
+
       <Stack.Screen 
         name="Destination"
         component={DestinationScreen}

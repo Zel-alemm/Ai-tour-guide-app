@@ -93,12 +93,216 @@ const religiousSites = [
     name: "Lalibela Churches",
     description: "11 medieval monolithic cave churches",
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'religious'
   },
   {
     id: 2,
     name: "Debre Berhan Selassie",
     description: "Famous for its ceiling of angel faces",
     image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'religious'
+  },
+  {
+    id: 3,
+    name: "Ura Kidane Mehret",
+    description: "Beautiful circular church on Lake Tana",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'religious'
+  },
+  {
+    id: 4,
+    name: "Axum Stelae",
+    description: "Ancient obelisks in the historic city of Axum",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'religious'
+  },
+  {
+    id: 5,
+    name: "Debre Damo",
+    description: "Ancient monastery accessible only by rope climb",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'religious'
+  },
+  {
+    id: 6,
+    name: "St. George's Church",
+    description: "Cross-shaped church carved from rock",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'religious'
+  },
+  {
+    id: 7,
+    name: "Na'akuto La'ab",
+    description: "Cave church with dripping holy water",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'religious'
+  },
+  {
+    id: 8,
+    name: "Yemrehanna Kristos",
+    description: "Beautiful church built in Aksumite style",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'religious'
+  },
+  {
+    id: 9,
+    name: "Bete Maryam",
+    description: "One of Lalibela's most revered churches",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'religious'
+  },
+  {
+    id: 10,
+    name: "Bete Giyorgis",
+    description: "Most famous of Lalibela's rock-hewn churches",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'religious'
+  },
+];
+
+const hotels = [
+  {
+    id: 1,
+    name: "Gheralta Lodge",
+    description: "Eco-lodge with stunning views of the Gheralta mountains",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'hotel'
+  },
+  {
+    id: 2,
+    name: "Lalibela Lodge",
+    description: "Comfortable accommodation near the rock-hewn churches",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'hotel'
+  },
+  {
+    id: 3,
+    name: "Kuriftu Resort & Spa",
+    description: "Luxury resort on the shores of Lake Tana",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'hotel'
+  },
+  {
+    id: 4,
+    name: "Simien Lodge",
+    description: "Africa's highest hotel with breathtaking views",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'hotel'
+  },
+  {
+    id: 5,
+    name: "Tana Hotel",
+    description: "Comfortable stay in Bahir Dar with lake views",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'hotel'
+  },
+  {
+    id: 6,
+    name: "Goha Hotel",
+    description: "Panoramic views of Gondar from this hilltop hotel",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'hotel'
+  },
+  {
+    id: 7,
+    name: "Blue Nile Hotel",
+    description: "Modern amenities in the heart of Bahir Dar",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'hotel'
+  },
+  {
+    id: 8,
+    name: "Roha Hotel",
+    description: "Mid-range option in Lalibela with great service",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'hotel'
+  },
+  {
+    id: 9,
+    name: "Fasil Lodge",
+    description: "Charming accommodation near Gondar's castles",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'hotel'
+  },
+  {
+    id: 10,
+    name: "Sabean International Hotel",
+    description: "Quality hotel in Axum with historic ambiance",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'hotel'
+  },
+];
+
+const lakes = [
+  {
+    id: 1,
+    name: "Lake Tana",
+    description: "Source of the Blue Nile with historic island monasteries",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'lake'
+  },
+  {
+    id: 2,
+    name: "Lake Hayk",
+    description: "Scenic lake near Dessie with birdwatching opportunities",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'lake'
+  },
+  {
+    id: 3,
+    name: "Lake Ashenge",
+    description: "High-altitude lake with stunning mountain backdrop",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'lake'
+  },
+  {
+    id: 4,
+    name: "Lake Ardibo",
+    description: "Small crater lake near Woldia",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'lake'
+  },
+  {
+    id: 5,
+    name: "Lake Zengena",
+    description: "Crater lake near Bahir Dar with unique ecosystem",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'lake'
+  },
+  {
+    id: 6,
+    name: "Lake Chomen",
+    description: "Wetland area important for bird conservation",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'lake'
+  },
+  {
+    id: 7,
+    name: "Lake Tana Biosphere Reserve",
+    description: "Protected area encompassing Lake Tana and its wetlands",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'lake'
+  },
+  {
+    id: 8,
+    name: "Lake Wonchi",
+    description: "Crater lake with hot springs and waterfalls",
+    image: 'https://images.unsplash.com/photo-1580130732478-4e339fb3376f',
+    type: 'lake'
+  },
+  {
+    id: 9,
+    name: "Lake Alemaya",
+    description: "Freshwater lake near Harar (eastern edge of Amhara)",
+    image: 'https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a',
+    type: 'lake'
+  },
+  {
+    id: 10,
+    name: "Lake Tana Islands",
+    description: "37 islands with monasteries and unique wildlife",
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945',
+    type: 'lake'
   },
 ];
 
@@ -196,53 +400,32 @@ const HomeScreen = ({ navigation }) => {
     );
   };
 
-  const renderReligiousSite = ({ item }) => {
-    return (
-      <TouchableOpacity 
-        style={styles.gemCard}
-        onPress={() => navigation.navigate('Destination', { destination: item })}
-      >
-        <Image 
-          source={{ uri: item.image }} 
-          style={styles.gemImage}
-          resizeMode="cover"
-        />
-        <View style={styles.gemTextContainer}>
-          <Text style={styles.gemTitle}>{item.name}</Text>
-          <Text style={styles.gemDescription}>{item.description}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
   const renderFilteredContent = () => {
+    let data = [];
     switch (activeFilter) {
       case 'religious':
-        return (
-          <FlatList
-            data={religiousSites}
-            renderItem={renderReligiousSite}
-            keyExtractor={item => item.id.toString()}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.gemsContainer}
-          />
-        );
+        data = religiousSites;
+        break;
       case 'hotels':
-        return (
-          <View style={styles.placeholderCard}>
-            <Text style={styles.placeholderText}>Hotels in Amhara will appear here</Text>
-          </View>
-        );
+        data = hotels;
+        break;
       case 'lakes':
-        return (
-          <View style={styles.placeholderCard}>
-            <Text style={styles.placeholderText}>Lakes in Amhara will appear here</Text>
-          </View>
-        );
+        data = lakes;
+        break;
       default:
-        return null;
+        data = religiousSites;
     }
+
+    return (
+      <FlatList
+        data={data}
+        renderItem={renderGem}
+        keyExtractor={item => item.id.toString()}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.gemsContainer}
+      />
+    );
   };
 
   return (
@@ -377,7 +560,11 @@ const HomeScreen = ({ navigation }) => {
 
         {/* Filtered Content */}
         <View style={styles.filteredContent}>
-          <Text style={styles.contentTitle}>{activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1)} in Amhara</Text>
+          <Text style={styles.contentTitle}>
+            {activeFilter === 'religious' && 'Religious Sites in Amhara'}
+            {activeFilter === 'hotels' && 'Hotels in Amhara'}
+            {activeFilter === 'lakes' && 'Lakes in Amhara'}
+          </Text>
           {renderFilteredContent()}
         </View>
 
@@ -495,7 +682,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sectionContainer: {
-    padding: 20,
+    padding: 8,
+    marginLeft:3,
     marginTop: 30,
     backgroundColor: colors.primary,
     borderRadius: 10,
@@ -603,15 +791,16 @@ const styles = StyleSheet.create({
   },
   filterContainer: {
     flexDirection: 'row',
-    paddingHorizontal: 20,
-    marginTop: 10,
+    paddingHorizontal: 15,
+    marginTop: 20,
+    marginBottom:7,
   },
   filterButton: {
     paddingHorizontal: 15,
     paddingVertical: 8,
-    marginRight: 10,
+    marginRight: 1,
     backgroundColor: colors.secondary,
-    borderRadius: 20,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: colors.accent,
   },

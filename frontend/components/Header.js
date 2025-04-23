@@ -25,7 +25,11 @@ const Header = ({ navigation, isLoggedIn, user }) => {
           style={styles.logoContainer}
           onPress={() => navigation.navigate('Home')}
         >
-          <MaterialCommunityIcons name="earth" size={24} color="#fff" />
+          <Image 
+            source={require('../../assets/logo/logo.png')}
+            style={styles.logoImage}
+            resizeMode="contain"
+          />
           <Text style={styles.headerText}>Visit Amhara</Text>
         </TouchableOpacity>
 
@@ -69,11 +73,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  logoImage: {
+    width: 70,
+    height: 50,
+    marginRight: 10,
+  },
   headerText: {
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
-    marginLeft: 10,
   },
   rightIcon: {
     flex: 1,

@@ -3,6 +3,7 @@
     "name": "Visit_Amhara",
     "slug": "Visit_Amhara",
     "version": "1.0.0",
+    "plugins": ["expo-location"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const defaultProfileImage = require('../../assets/icon.png');
+const defaultProfileImage = require('../../assets/logo/logo.png');
 
 const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser }) => {
   const handleLogout = () => {
@@ -12,20 +12,38 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
   };
 
   const menuItems = isLoggedIn ? [
-    { id: 1, title: 'My Bookings', icon: 'book', screen: 'Bookings' },
-    { id: 2, title: 'Reservations', icon: 'calendar-clock', screen: 'Reservations' },
+    { id: 1, title: 'My Bookings', icon: 'book', screen: 'BookingScreen' },
+    { id: 2, title: 'Reservations', icon: 'calendar-clock', screen: 'ReserveScreen' },
     { id: 3, title: 'Wishlist', icon: 'heart', screen: 'Wishlist' },
-    { id: 4, title: 'Profile Settings', icon: 'account-cog', screen: 'ProfileSettingsScreen' },
+    { 
+      id: 4, 
+      title: 'Profile Settings', 
+      icon: 'account-cog', 
+      screen: 'ProfileSettingsScreen',
+      params: { user, onUpdate: setUser } 
+    },
     { id: 5, title: 'Help Center', icon: 'help-circle', screen: 'Help' },
   ] : [
     { id: 1, title: 'Help Center', icon: 'help-circle', screen: 'Help' }
   ];
 
+  const handleMenuItemPress = (item) => {
+    if (isLoggedIn) {
+      if (item.params) {
+        navigation.navigate(item.screen, item.params);
+      } else {
+        navigation.navigate(item.screen);
+      }
+    } else {
+      navigation.navigate('Auth');
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.profileHeader}>
         <Image 
-          source={isLoggedIn ? user?.profileImage : defaultProfileImage} 
+          source={isLoggedIn && user?.profileImage ? user.profileImage : defaultProfileImage} 
           style={styles.profileImage} 
         />
         
@@ -41,13 +59,13 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
         {!isLoggedIn ? (
           <View style={styles.authButtonsContainer}>
             <TouchableOpacity
-              style={[styles.authButton, { marginRight: 10 }]}
+              style={[styles.authButton, { marginRight: 10, backgroundColor: '#393E46' }]}
               onPress={() => navigation.navigate('Auth', { mode: 'login' })}
             >
               <Text style={styles.authButtonText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.authButton, { backgroundColor: '#393E46' }]}
+              style={[styles.authButton, { backgroundColor: '#00ADB5' }]}
               onPress={() => navigation.navigate('Auth', { mode: 'signup' })}
             >
               <Text style={styles.authButtonText}>Sign Up</Text>
@@ -55,8 +73,8 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
           </View>
         ) : (
           <TouchableOpacity
-            style={styles.authButton}
-            onPress={() => navigation.navigate('ProfileSettingsScreen', { user, setUser })}
+            style={[styles.authButton, { backgroundColor: '#00ADB5' }]}
+            onPress={() => navigation.navigate('ProfileSettingsScreen', { user, onUpdate: setUser })}
           >
             <Text style={styles.authButtonText}>Edit Profile</Text>
           </TouchableOpacity>
@@ -68,7 +86,7 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
           <TouchableOpacity
             key={item.id}
             style={styles.menuItem}
-            onPress={() => isLoggedIn ? navigation.navigate(item.screen) : navigation.navigate('Auth')}
+            onPress={() => handleMenuItemPress(item)}
           >
             <MaterialCommunityIcons name={item.icon} size={24} color="#00ADB5" />
             <Text style={styles.menuItemText}>{item.title}</Text>
@@ -89,80 +107,91 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EEEEEE',
+    backgroundColor: '#222831',
   },
   profileHeader: {
     alignItems: 'center',
-    padding: 20,
+    padding: 30,
     backgroundColor: '#222831',
-    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#393E46',
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 170,
+    height: 170,
+    borderRadius: 80,
     borderWidth: 3,
     borderColor: '#00ADB5',
-    marginBottom: 15,
+    marginBottom: 20,
+    backgroundColor: '#393E46',
   },
   profileName: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#EEEEEE',
     marginBottom: 5,
   },
   profileEmail: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#00ADB5',
-    marginBottom: 15,
+    marginBottom: 20,
   },
   authButtonsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
+    width: '100%',
+    paddingHorizontal: 20,
   },
   authButton: {
-    backgroundColor: '#00ADB5',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 3,
   },
   authButtonText: {
-    color: '#fff',
+    color: '#EEEEEE',
     fontWeight: 'bold',
+    fontSize: 16,
+    paddingHorizontal: 20,
   },
   menuSection: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: '#393E46',
+    borderRadius: 12,
     marginHorizontal: 15,
     marginBottom: 20,
     overflow: 'hidden',
+    elevation: 2,
   },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 15,
+    padding: 18,
     borderBottomWidth: 1,
-    borderBottomColor: '#EEEEEE',
+    borderBottomColor: '#222831',
   },
   menuItemText: {
     flex: 1,
     fontSize: 16,
-    color: '#222831',
+    color: '#EEEEEE',
     marginLeft: 15,
   },
   logoutButton: {
-    backgroundColor: '#fff',
-    padding: 15,
+    backgroundColor: 'transparent',
+    padding: 16,
     marginHorizontal: 15,
-    borderRadius: 10,
+    borderRadius: 8,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'red',
+    borderColor: '#ff4444',
+    marginBottom: 30,
   },
   logoutButtonText: {
-    color: 'red',
+    color: '#ff4444',
     fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 
