@@ -6,36 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 const Footer = ({ navigation }) => {
   return (
     <View style={styles.footerContainer}>
-      <View style={styles.footerContent}>
-        {/* Column 1: About */}
-        <View style={styles.footerColumn}>
-          <Text style={styles.footerTitle}>Visit Amhara</Text>
-          <Text style={styles.footerText}>
-            Explore the rich cultural heritage of Ethiopia's historic region.
-          </Text>
-        </View>
-
-        {/* Column 2: Quick Links */}
-        <View style={styles.footerColumn}>
-          <Text style={styles.footerTitle}>Quick Links</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-            <Text style={styles.footerLink}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Destinations')}>
-            <Text style={styles.footerLink}>Destinations</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Column 3: Contact */}
-        <View style={styles.footerColumn}>
-          <Text style={styles.footerTitle}>Contact</Text>
-          <View style={styles.contactItem}>
-            <Ionicons name="mail" size={16} color="#00ADB5" />
-            <Text style={styles.footerText}>contact@visitamhara.com</Text>
-          </View>
-        </View>
-      </View>
-
+    
       {/* Copyright section */}
       <View style={styles.copyrightContainer}>
         <Text style={styles.copyrightText}>

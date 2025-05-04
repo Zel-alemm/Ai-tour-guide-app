@@ -15,10 +15,12 @@ import {
 } from 'react-native';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-const HotelDetails = ({ hotel, navigation }) => {
+const HotelDetails = ({ hotel }) => {
+  const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);

@@ -1,14 +1,14 @@
 import React from 'react';
-import { 
-  View, 
-  StyleSheet, 
-  Text, 
-  TouchableOpacity, 
-  Image, 
-  TextInput, 
-  Modal, 
-  FlatList, 
-  ScrollView 
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  Modal,
+  FlatList,
+  ScrollView,
 } from 'react-native';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
@@ -73,7 +73,7 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
   const handleSearch = (query) => {
     setSearchQuery(query);
     if (query) {
-      const filtered = searchData.filter(item =>
+      const filtered = searchData.filter((item) =>
         item.name.toLowerCase().includes(query.toLowerCase())
       );
       setSearchResults(filtered);
@@ -83,9 +83,9 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
   };
 
   const navigateToResult = (item) => {
-    navigation.navigate('Main', { 
-      screen: 'Search', 
-      params: { item } 
+    navigation.navigate('Main', {
+      screen: 'Search',
+      params: { item },
     });
     setSearchVisible(false);
     setSearchQuery('');
@@ -126,114 +126,53 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
 
   const getIconName = (type) => {
     switch (type) {
-      case 'Hotel': return 'bed';
-      case 'Destination': return 'map-marker';
-      case 'Event': return 'calendar';
-      case 'Service': return 'account-tie';
-      default: return 'magnify';
+      case 'Hotel':
+        return 'bed';
+      case 'Destination':
+        return 'map-marker';
+      case 'Event':
+        return 'calendar';
+      case 'Service':
+        return 'account-tie';
+      default:
+        return 'magnify';
     }
   };
-
-  const renderLanguageItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.dropdownItem}
-      onPress={() => selectLanguage(item)}
-    >
-      <Text style={styles.flag}>{item.flag}</Text>
-      <Text style={styles.dropdownItemText}>{item.name}</Text>
-    </TouchableOpacity>
-  );
-
-  const renderDestinationItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.dropdownItem}
-      onPress={() => navigation.navigate('Main', { 
-        screen: 'Destination', 
-        params: { category: item.name } 
-      })}
-    >
-      <Text style={styles.dropdownItemText}>{item.name}</Text>
-    </TouchableOpacity>
-  );
-
-  const renderFacilityItem = ({ item }) => {
-    if (item.name === 'Hotels and Lodges') {
-      return (
-        <TouchableOpacity
-          style={styles.dropdownItem}
-          onPress={() => navigation.navigate('Main', { 
-            screen: 'FilterHotel',
-            params: { facilityType: item.name } 
-          })}
-        >
-          <Text style={styles.dropdownItemText}>{item.name}</Text>
-        </TouchableOpacity>
-      );
-    }
-    
-    return (
-      <TouchableOpacity
-        style={styles.dropdownItem}
-        onPress={() => navigation.navigate('Main', { 
-          screen: 'Facility', 
-          params: { type: item.name } 
-        })}
-      >
-        <Text style={styles.dropdownItemText}>{item.name}</Text>
-      </TouchableOpacity>
-    );
-  };
-
-  const renderAboutItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.dropdownItem}
-      onPress={() => navigation.navigate('Main', { 
-        screen: 'About', 
-        params: { section: item.name } 
-      })}
-    >
-      <Text style={styles.dropdownItemText}>{item.name}</Text>
-    </TouchableOpacity>
-  );
 
   const menuItems = [
-    { 
-        label: 'Home', 
-        icon: 'home', 
-        action: () => navigation.navigate('Main', { screen: 'Home' })
-      },
-    { 
-      label: 'Destinations', 
-      icon: 'map-marker-radius', 
+    {
+      label: 'Home',
+      icon: 'home',
+      action: () => navigation.navigate('Main', { screen: 'Home' }),
+    },
+    {
+      label: 'Destinations',
+      icon: 'map-marker-radius',
       action: toggleDestinations,
       isDropdown: true,
-      dropdownItems: destinationCategories
     },
-    { 
-      label: 'Tourist Facilities', 
+    {
+      label: 'Tourist Facilities',
       icon: 'bed',
       action: toggleFacilities,
       isDropdown: true,
-      dropdownItems: touristFacilities
     },
-    { 
-      label: 'Events', 
-      icon: 'calendar', 
-      action: () => navigation.navigate('Main', { screen: 'Events' })
+    {
+      label: 'Events',
+      icon: 'calendar',
+      action: () => navigation.navigate('Main', { screen: 'Events' }),
     },
-    { 
-      label: 'About', 
+    {
+      label: 'About',
       icon: 'information',
       action: toggleAbout,
       isDropdown: true,
-      dropdownItems: aboutSections
     },
-    { 
-      label: 'Language', 
-      icon: 'translate', 
+    {
+      label: 'Language',
+      icon: 'translate',
       action: toggleLanguageDropdown,
       isDropdown: true,
-      dropdownItems: languages
     },
   ];
 
@@ -264,10 +203,10 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
                 style={styles.resultItem}
                 onPress={() => navigateToResult(item)}
               >
-                <MaterialCommunityIcons 
-                  name={getIconName(item.type)} 
-                  size={24} 
-                  color={colors.accent} 
+                <MaterialCommunityIcons
+                  name={getIconName(item.type)}
+                  size={24}
+                  color={colors.accent}
                 />
                 <View style={styles.resultTextContainer}>
                   <Text style={styles.resultName}>{item.name}</Text>
@@ -282,14 +221,14 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
 
       <ScrollView>
         <View style={styles.header}>
-          <Image 
+          <Image
             source={require('../../assets/logo/logo.png')}
             style={styles.logo}
           />
           <Text style={styles.headerText}>Visit Amhara</Text>
         </View>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.smallSearchButton}
           onPress={() => setSearchVisible(true)}
         >
@@ -300,66 +239,112 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
         <View style={styles.menuSection}>
           {menuItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity
-                style={styles.menuItem}
-                onPress={item.action}
-              >
-                <MaterialCommunityIcons 
-                  name={item.icon} 
-                  size={24} 
-                  color={colors.accent} 
+              <TouchableOpacity style={styles.menuItem} onPress={item.action}>
+                <MaterialCommunityIcons
+                  name={item.icon}
+                  size={24}
+                  color={colors.accent}
                 />
                 <Text style={styles.menuItemText}>{item.label}</Text>
                 {item.isDropdown && (
-                  <MaterialIcons 
+                  <MaterialIcons
                     name={
                       (item.label === 'Language' && showLanguageDropdown) ||
                       (item.label === 'Destinations' && showDestinations) ||
                       (item.label === 'Tourist Facilities' && showFacilities) ||
                       (item.label === 'About' && showAbout)
-                        ? 'keyboard-arrow-up' 
+                        ? 'keyboard-arrow-up'
                         : 'keyboard-arrow-down'
-                    } 
-                    size={24} 
-                    color="#fff" 
+                    }
+                    size={24}
+                    color="#fff"
                   />
                 )}
               </TouchableOpacity>
 
               {item.label === 'Language' && showLanguageDropdown && (
-                <FlatList
-                  data={languages}
-                  renderItem={renderLanguageItem}
-                  keyExtractor={item => item.id.toString()}
-                  style={styles.dropdownList}
-                />
+                <View style={styles.dropdownList}>
+                  {languages.map((lang) => (
+                    <TouchableOpacity
+                      key={lang.id}
+                      style={styles.dropdownItem}
+                      onPress={() => selectLanguage(lang)}
+                    >
+                      <Text style={styles.flag}>{lang.flag}</Text>
+                      <Text style={styles.dropdownItemText}>{lang.name}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               )}
 
               {item.label === 'Destinations' && showDestinations && (
-                <FlatList
-                  data={destinationCategories}
-                  renderItem={renderDestinationItem}
-                  keyExtractor={item => item.id.toString()}
-                  style={styles.dropdownList}
-                />
+                <View style={styles.dropdownList}>
+                  {destinationCategories.map((category) => (
+                    <TouchableOpacity
+                      key={category.id}
+                      style={styles.dropdownItem}
+                      onPress={() =>
+                        navigation.navigate('Main', {
+                          screen: 'Destination',
+                          params: { category: category.name },
+                        })
+                      }
+                    >
+                      <Text style={styles.dropdownItemText}>
+                        {category.name}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               )}
 
               {item.label === 'Tourist Facilities' && showFacilities && (
-                <FlatList
-                  data={touristFacilities}
-                  renderItem={renderFacilityItem}
-                  keyExtractor={item => item.id.toString()}
-                  style={styles.dropdownList}
-                />
+                <View style={styles.dropdownList}>
+                  {touristFacilities.map((facility) => (
+                    <TouchableOpacity
+                      key={facility.id}
+                      style={styles.dropdownItem}
+                      onPress={() =>
+                        navigation.navigate('Main', {
+                          screen:
+                            facility.name === 'Hotels and Lodges'
+                              ? 'FilterHotel'
+                              : 'Facility',
+                          params: {
+                            [facility.name === 'Hotels and Lodges'
+                              ? 'facilityType'
+                              : 'type']: facility.name,
+                          },
+                        })
+                      }
+                    >
+                      <Text style={styles.dropdownItemText}>
+                        {facility.name}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               )}
 
               {item.label === 'About' && showAbout && (
-                <FlatList
-                  data={aboutSections}
-                  renderItem={renderAboutItem}
-                  keyExtractor={item => item.id.toString()}
-                  style={styles.dropdownList}
-                />
+                <View style={styles.dropdownList}>
+                  {aboutSections.map((section) => (
+                    <TouchableOpacity
+                      key={section.id}
+                      style={styles.dropdownItem}
+                      onPress={() =>
+                        navigation.navigate('Main', {
+                          screen: 'About',
+                          params: { section: section.name },
+                        })
+                      }
+                    >
+                      <Text style={styles.dropdownItemText}>
+                        {section.name}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
               )}
             </View>
           ))}
@@ -370,21 +355,25 @@ const DrawerContent = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
         <Text style={styles.currentLanguage}>
           Current Language: {selectedLanguage.flag} {selectedLanguage.name}
         </Text>
-        <TouchableOpacity 
-  style={styles.loginButton}
-  onPress={() => {
-    if (isLoggedIn) {
-      navigation.navigate('Main', { screen: 'Profile' });
-    } else {
-      navigation.navigate('Main', { screen: 'Auth' });
-    }
-  }}
->
-  <MaterialIcons name={isLoggedIn ? "account-circle" : "login"} size={24} color="#fff" />
-  <Text style={styles.loginButtonText}>
-    {isLoggedIn ? 'My Profile' : 'Login / Sign Up'}
-  </Text>
-</TouchableOpacity>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => {
+            if (isLoggedIn) {
+              navigation.navigate('Main', { screen: 'Profile' });
+            } else {
+              navigation.navigate('Main', { screen: 'Auth' });
+            }
+          }}
+        >
+          <MaterialIcons
+            name={isLoggedIn ? 'account-circle' : 'login'}
+            size={24}
+            color="#fff"
+          />
+          <Text style={styles.loginButtonText}>
+            {isLoggedIn ? 'My Profile' : 'Login / Sign Up'}
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -471,7 +460,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginLeft: 44,
     marginBottom: 5,
-    maxHeight: 200,
   },
   dropdownItem: {
     flexDirection: 'row',
@@ -519,7 +507,6 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     padding: 15,
-    flex: 1,
   },
   resultItem: {
     flexDirection: 'row',

@@ -8,7 +8,7 @@ import {
   Image
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import FilterHotel from './FilterHotel';
+import FilterHotel from '../../FilterHotel';
 
 const ALL_LOCATIONS = 'All Locations';
 const ALL_FACILITY_TYPES = 'All Facility Types';

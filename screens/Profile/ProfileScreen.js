@@ -60,13 +60,13 @@ const ProfileScreen = ({ navigation, isLoggedIn, user, setIsLoggedIn, setUser })
           <View style={styles.authButtonsContainer}>
             <TouchableOpacity
               style={[styles.authButton, { marginRight: 10, backgroundColor: '#393E46' }]}
-              onPress={() => navigation.navigate('Auth', { mode: 'login' })}
+              onPress={() => navigation.navigate('Login', { mode: 'login' })}
             >
               <Text style={styles.authButtonText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.authButton, { backgroundColor: '#00ADB5' }]}
-              onPress={() => navigation.navigate('Auth', { mode: 'signup' })}
+              onPress={() => navigation.navigate('Signup', { mode: 'signup' })}
             >
               <Text style={styles.authButtonText}>Sign Up</Text>
             </TouchableOpacity>
